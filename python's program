@@ -1,0 +1,12 @@
+from pyeda.inter import *
+
+# Définir les variables booléennes
+A, B, C = map(bddvar, 'ABC')
+
+# Définir la fonction logique
+f = Or(And(A, B, C), And(~A, B, ~C), And(A, ~B, C))
+
+# Minimiser la fonction
+g = espresso_exprs(f.to_expr())
+
+print(g)
